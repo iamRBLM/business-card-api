@@ -40,12 +40,12 @@ Create the environment files inside src/config/:
 
 Required environment variables:
 
-PORT=8080
-DB_CONNECTION_STRING=mongodb+srv://<user>:<password>@cluster.mongodb.net/biz_cards_dev
-JWT_SECRET=your-secure-secret-key-at-least-32-chars-long
-CLIENT_URL=http://localhost:5173
-NODE_ENV=development
-LOG_LEVEL=info`
+- PORT=8080
+- DB_CONNECTION_STRING=mongodb+srv://<user>:<password>@cluster.mongodb.net/biz_cards_dev
+- JWT_SECRET=your-secure-secret-key-at-least-32-chars-long
+- CLIENT_URL=http://localhost:5173
+- NODE_ENV=development
+- LOG_LEVEL=info`
 
 ### 4. Running the Application
 
