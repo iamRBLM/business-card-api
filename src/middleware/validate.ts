@@ -3,6 +3,7 @@ import { ZodType } from "zod/v4";
 import { userSchema } from "../validations/user.ts";
 import { loginSchema } from "../validations/login.ts";
 import { cardSchema } from "../validations/card.ts";
+import { updateBizNumberSchema } from "../validations/bizNumber.ts";
 
 /**
  * Generic middleware function to validate incoming request body data using a Zod schema.
@@ -41,3 +42,8 @@ export const validateCardUpdate = validateSchema(cardSchema.partial());
  * Middleware to validate new business card creation data.
  */
 export const validateCard = validateSchema(cardSchema);
+
+/**
+ * Middleware to validate business number updates (Admin only).
+ */
+export const validateBizNumber = validateSchema(updateBizNumberSchema);

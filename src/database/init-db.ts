@@ -1,4 +1,4 @@
-import { logger } from "../logs/logger.ts";
+import { logger } from "../middleware/logger.ts";
 import authService from "../services/auth-service.ts";
 import { InitialUsers } from "./initial-users.ts";
 import { InitialCards } from "./initial-cards.ts";

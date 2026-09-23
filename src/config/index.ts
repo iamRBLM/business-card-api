@@ -1,5 +1,5 @@
 import z from "zod/v4";
-import { logger } from "../logs/logger.ts";
+import { logger } from "../middleware/logger.ts";
 
 /**
  * Validation schema for environment variables (.env).

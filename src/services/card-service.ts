@@ -1,7 +1,7 @@
 import { type Card as CardRequest } from "../validations/card.ts";
 import { CardModel } from "../database/models.ts";
 import { NotFoundError } from "../error/custom-error.ts";
-import { logger } from "../logs/logger.ts";
+import { logger } from "../middleware/logger.ts";
 
 const cardService = {
   /**
@@ -37,6 +37,35 @@ const cardService = {
 
     logger.info({ cardId: id }, "[updateCard]: Card updated successfully");
     return updatedCard;
+  },
+
+  /**
+   * Update card business number (Admin only).
+   */
+  updateBizNumber: async (cardId: string, newBizNumber: number) => {
+    // 1. Check if another card already uses this bizNumber
+    const isTaken = await CardModel.findOne({
+      bizNumber: newBizNumber,
+      _id: { $ne: cardId },
+    });
+    if (isTaken) {
+      const error = new Error("Business number is already taken");
+      (error as any).status = 409;
+      throw error;
+    }
+
+    // 2. Find and update the card
+    const card = await CardModel.findByIdAndUpdate(
+      cardId,
+      { bizNumber: newBizNumber },
+      { new: true },
+    );
+
+    if (!card) {
+      throw new NotFoundError("Card not found");
+    }
+
+    return card;
   },
 
   /**

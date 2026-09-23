@@ -2,7 +2,7 @@ import { type RequestHandler, type Request } from "express";
 import { HttpError } from "../error/custom-error.ts";
 import authService from "../services/auth-service.ts";
 import { UserModel } from "../database/models.ts";
-import { logger } from "../logs/logger.ts";
+import { logger } from "./logger.ts";
 
 /**
  * Extract the JWT string from the Authorization header.

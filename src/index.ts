@@ -5,7 +5,7 @@ import usersRouter from "./routes/users.ts";
 import cardsRouter from "./routes/cards.ts";
 import connectDB from "./database/connect.ts";
 import { errorHandler } from "./middleware/error-handler.ts";
-import { httpLogger, logger } from "./logs/logger.ts";
+import { httpLogger, logger } from "./middleware/logger.ts";
 import { cors } from "./middleware/cors.ts";
 
 const app = express();

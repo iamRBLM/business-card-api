@@ -2,7 +2,7 @@ import { type User as UserRequest } from "../validations/user.ts";
 import { UserModel } from "../database/models.ts";
 import { HttpError, NotFoundError } from "../error/custom-error.ts";
 import authService from "./auth-service.ts";
-import { logger } from "../logs/logger.ts";
+import { logger } from "../middleware/logger.ts";
 
 const userService = {
   /**

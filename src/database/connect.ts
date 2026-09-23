@@ -1,7 +1,7 @@
 import env from "../config/index.ts";
 import mongoose from "mongoose";
 import initDB from "./init-db.ts";
-import { logger } from "../logs/logger.ts";
+import { logger } from "../middleware/logger.ts";
 
 /**
  * Connect to MongoDB and seed the database if empty.

@@ -1,8 +1,13 @@
 import { Router } from "express";
-import { validateCard, validateCardUpdate } from "../middleware/validate.ts";
+import {
+  validateBizNumber,
+  validateCard,
+  validateCardUpdate,
+} from "../middleware/validate.ts";
 import { isBuisness } from "../middleware/is-buisness.ts";
 import cardService from "../services/card-service.ts";
 import validateToken from "../middleware/validate-token.ts";
+import { isAdmin } from "../middleware/is-admin.ts";
 
 const router = Router();
 
@@ -68,6 +73,14 @@ router.delete("/:id", validateToken, async (req, res) => {
 
   const card = await cardService.deleteCard(cardId, userId, isAdmin);
   res.json({ message: "Card deleted successfully", card });
+});
+
+/**
+ * Update card business number (Admin only).
+ */
+router.patch("/:id/biz-number", ...isAdmin, validateBizNumber, async (req, res, next) => {
+    const card = await cardService.updateBizNumber(req.params.id as string, req.body.bizNumber);
+    res.json(card);
 });
 
 /**

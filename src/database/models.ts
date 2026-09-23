@@ -2,7 +2,7 @@ import mongoose, { type Model } from "mongoose";
 import { type DBUser, type IUserModel, userDBSchema } from "./schemas/user.ts";
 import { cardDBSchema, type DBCard } from "./schemas/card.ts";
 import authService from "../services/auth-service.ts";
-import { logger } from "../logs/logger.ts";
+import { logger } from "../middleware/logger.ts";
 
 /**
  * Hash and set the password for the user instance.
