@@ -51,11 +51,11 @@ Required environment variables:
 
 #### Development mode (with live reload & pretty logs)
 
-pnpm dev
+- pnpm dev
 
 #### Production mode
 
-pnpm prod
+- pnpm prod
 
 ---
 
