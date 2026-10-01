@@ -7,6 +7,24 @@ dist
 # Environment variables and secrets
 .env
 .env.*
+# Dependencies
+node_modules/
+
+# Production build output
+dist
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+!src/config/.env.example
+
+# Application logs
+*.log
+logs/
+
+# Local REST client test files
+rest/
 
 # Application logs
 *.log
