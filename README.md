@@ -28,15 +28,17 @@ A production-ready RESTful API for managing users and business cards, built with
 
 Clone the repository and install dependencies:
 
+```bash
 pnpm install
+```
 
 ### 3. Environment Configuration
 
-Create the environment files inside src/config/:
+Create the environment files inside `src/config/`:
 
-- src/config/.env (Global defaults)
-- src/config/.env.development (Development configuration)
-- src/config/.env.production (Production configuration)
+- `src/config/.env` (Global defaults)
+- `src/config/.env.development` (Development configuration)
+- `src/config/.env.production` (Production configuration)
 
 Required environment variables:
 
@@ -45,17 +47,21 @@ Required environment variables:
 - JWT_SECRET=your-secure-secret-key-at-least-32-chars-long
 - CLIENT_URL=http://localhost:5173
 - NODE_ENV=development
-- LOG_LEVEL=info
+- LOG_LEVEL=info`
 
 ### 4. Running the Application
 
 #### Development mode (with live reload & pretty logs)
 
-- pnpm dev
+```bash
+pnpm dev
+```
 
 #### Production mode
 
-- pnpm prod
+```bash
+pnpm prod
+```
 
 ---
 
@@ -66,7 +72,7 @@ The application implements a centralized error handling architecture combined wi
 - Centralized Middleware (errorHandler): Intercepts all runtime exceptions, JOSE/JWT token validation errors, malformed JSON body payloads, MongoDB uniqueness/constraint violations, and Zod validation errors.
 - Daily Error Logs (logs/ directory): All client and server errors (HTTP status >= 400) are automatically appended to daily log files located at the root logs/ directory using the format YYYY-MM-DD.log.
 
-[HH:MM:SS] <STATUS_CODE> <METHOD> <URL> - <ERROR_MESSAGE>
+`[HH:MM:SS] <STATUS_CODE> <METHOD> <URL> - <ERROR_MESSAGE>`
 
 - 404 Catch-All Middleware: Missing endpoints are forwarded directly to the centralized handler via NotFoundError to guarantee all unhandled requests are logged.
 
