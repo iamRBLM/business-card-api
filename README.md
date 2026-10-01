@@ -42,12 +42,14 @@ Create the environment files inside `src/config/`:
 
 Required environment variables:
 
-- PORT=8080
-- DB_CONNECTION_STRING=mongodb+srv://<user>:<password>@cluster.mongodb.net/biz_cards_dev
-- JWT_SECRET=your-secure-secret-key-at-least-32-chars-long
-- CLIENT_URL=http://localhost:5173
-- NODE_ENV=development
-- LOG_LEVEL=info`
+```env
+PORT=8080
+DB_CONNECTION_STRING=mongodb+srv://<user>:<password>@cluster.mongodb.net/biz_cards_dev
+JWT_SECRET=your-secure-secret-key-at-least-32-chars-long
+CLIENT_URL=http://localhost:5173
+NODE_ENV=development
+LOG_LEVEL=info
+```
 
 ### 4. Running the Application
 
@@ -94,29 +96,29 @@ All protected routes require a Bearer token in the x-auth-token header (or stand
 
 ### User Management (/api/v1/users)
 
-| #   | Method | Endpoint            | Access Level            | Description                                                           |
-| --- | ------ | ------------------- | ----------------------- | --------------------------------------------------------------------- |
-| 1   | POST   | /api/v1/users       | Public                  | Register a new user (isBusiness optional, password hashed via bcrypt) |
-| 2   | POST   | /api/v1/users/login | Public                  | Authenticate user and receive a signed JWT token                      |
-| 3   | GET    | /api/v1/users       | Admin                   | Retrieve all registered users                                         |
-| 4   | GET    | /api/v1/users/:id   | Registered User / Admin | Retrieve a specific user by ID (Self or Admin)                        |
-| 5   | PUT    | /api/v1/users/:id   | Registered User         | Update user profile information (Self only)                           |
-| 6   | PATCH  | /api/v1/users/:id   | Registered User         | Toggle user isBusiness status (Self only)                             |
-| 7   | DELETE | /api/v1/users/:id   | Registered User / Admin | Remove a user account (Self or Admin)                                 |
+| #    | Method  | Endpoint             | Access Level             | Description                                                            |
+| ---- | ------- | -------------------- | ------------------------ | ---------------------------------------------------------------------- |
+| 1    | POST    | /api/v1/users        | Public                   | Register a new user (isBusiness optional, password hashed via bcrypt)  |
+| 2    | POST    | /api/v1/users/login  | Public                   | Authenticate user and receive a signed JWT token                       |
+| 3    | GET     | /api/v1/users        | Admin                    | Retrieve all registered users                                          |
+| 4    | GET     | /api/v1/users/:id    | Registered User / Admin  | Retrieve a specific user by ID (Self or Admin)                         |
+| 5    | PUT     | /api/v1/users/:id    | Registered User          | Update user profile information (Self only)                            |
+| 6    | PATCH   | /api/v1/users/:id    | Registered User          | Toggle user isBusiness status (Self only)                              |
+| 7    | DELETE  | /api/v1/users/:id    | Registered User / Admin  | Remove a user account (Self or Admin)                                  |
 
 ---
 
 ### Card Management (/api/v1/cards)
 
-| #   | Method | Endpoint               | Access Level       | Description                                                |
-| --- | ------ | ---------------------- | ------------------ | ---------------------------------------------------------- |
-| 8   | GET    | /api/v1/cards          | Public             | Retrieve all business cards                                |
-| 9   | GET    | /api/v1/cards/my-cards | Business User      | Retrieve all cards created by the authenticated user       |
-| 10  | GET    | /api/v1/cards/:id      | Public             | Retrieve a specific card by ID                             |
-| 11  | POST   | /api/v1/cards          | Business User      | Create a new business card (generates unique bizNumber)    |
-| 12  | PUT    | /api/v1/cards/:id      | Card Owner         | Update a business card (Owner only)                        |
-| 13  | PATCH  | /api/v1/cards/:id      | Registered User    | Toggle like status on a card (add/remove user ID in likes) |
-| 14  | DELETE | /api/v1/cards/:id      | Card Owner / Admin | Delete a card (Card Owner or Admin)                        |
+| #    | Method  | Endpoint                | Access Level        | Description                                                 |
+| ---- | ------- | ----------------------- | ------------------- | ----------------------------------------------------------- |
+| 8    | GET     | /api/v1/cards           | Public              | Retrieve all business cards                                 |
+| 9    | GET     | /api/v1/cards/my-cards  | Business User       | Retrieve all cards created by the authenticated user        |
+| 10   | GET     | /api/v1/cards/:id       | Public              | Retrieve a specific card by ID                              |
+| 11   | POST    | /api/v1/cards           | Business User       | Create a new business card (generates unique bizNumber)     |
+| 12   | PUT     | /api/v1/cards/:id       | Card Owner          | Update a business card (Owner only)                         |
+| 13   | PATCH   | /api/v1/cards/:id       | Registered User     | Toggle like status on a card (add/remove user ID in likes)  |
+| 14   | DELETE  | /api/v1/cards/:id       | Card Owner / Admin  | Delete a card (Card Owner or Admin)                         |
 
 ---
 
