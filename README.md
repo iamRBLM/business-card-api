@@ -45,7 +45,7 @@ Required environment variables:
 - JWT_SECRET=your-secure-secret-key-at-least-32-chars-long
 - CLIENT_URL=http://localhost:5173
 - NODE_ENV=development
-- LOG_LEVEL=info`
+- LOG_LEVEL=info
 
 ### 4. Running the Application
 
